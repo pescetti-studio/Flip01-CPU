@@ -16,7 +16,7 @@ Data and addresses travel on two separate connection networks called the **data 
 
 Flip01 is based on a **Harvard architecture**, meaning that data and instructions (the actions the processor must execute) are stored in two separate memories: **MEM1** for data and **MEM2** for instructions. <br />
 MEM1 is an _8-bit memory_ with 64 KB, while MEM2 is a _9-bit memory_ with 64 KB. <br />
-To move, temporarily store, and possibly modify these data, a component called a register is used. <br />
+To move, temporarily store, and possibly modify these data, a component called register is used. <br />
 
 ## Resisters
 
