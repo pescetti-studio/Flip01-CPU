@@ -49,20 +49,20 @@ Based on the configuration and the combination of 6 binary control signals (0 or
 
 ### Main operations
 
-+ ADD: ALUOUT = A + B
-+ SUB: ALUOUT = A - B
-+ AND: ALUOUT = A AND B
-+ OR: ALUOUT = A OR B
-+ NOT: ALUOUT = !A
-+ SHIFTL: << A
-+ SHIFTR: >> A
++ **ADD**: ALUOUT = A + B
++ **SUB**: ALUOUT = A - B
++ **AND**: ALUOUT = A AND B
++ **OR**: ALUOUT = A OR B
++ **NOT**: ALUOUT = !A
++ **SHIFTL**: << A
++ **SHIFTR**: >> A
 
 ### Derived operations
 
-+ INC: A + 1
-+ DEC: A - 1
-+ 0: ALUOUT = 0
-+ A: ALUOUT = A
++ **INC**: A + 1
++ **DEC**: A - 1
++ **0**: ALUOUT = 0
++ **A**: ALUOUT = A
 
 ## Instructions
 
@@ -169,12 +169,23 @@ The assembler was developed in **C/C++** using the **Dev C++ IDE**.
 > [!WARNING]
 > The assembler is only compatible with Windows-based operating systems
 
+# How to Use the Processor (Beginner's Tutorial)
 
+The first step is to open the file **[Flip01_Circuit.circ](Flip01_Circuit.circ)** with **Logisim Evolution**. <br />
+At this point, the file containing the entire circuit should open, but for now, we'll set it aside since we first need to generate the code for the CPU to interpret. <br />
 
+To do this, you will need to open the [assembler](Flip01_Assembler) and write the code, or open a previously prepared file for this purpose _(you can find examples in the [Code Examples](Code_Examples) folder)_. 
+<br /> If the code is correct and contains no errors, the assembler will directly produce the code readable by the CPU. <br />
 
+It should look something like this:
 
+![assembler2](https://github.com/user-attachments/assets/774da8e1-f1df-4821-8f86-33ee60bcf0b0)
 
+At this point, simply copy the first line of hexadecimal values _(the one corresponding to the data)_ and paste it into the **RAM MEM1** component in the Logisim file. To do this, right-click on the component and select **`Edit Contents`**. <br />
 
+You will need to repeat the same process with the second line of hexadecimal values _(the one corresponding to the instructions)_, pasting it into the **RAM MEM2** component in the Logisim file. Again, right-click on the component and select **`Edit Contents`**. <br />
 
+Now everything is ready to start the simulation. In the main menu at the top, click on **`Simulate`** to open a dropdown menu. <br />
+You can modify the "simulation speed" by changing the **clock frequency** in the **`Auto-Tick Frequency`** section _(a higher value corresponds to a greater execution speed)_. <br />
 
-
+Once you have made this choice, in the same dropdown menu, just press **`Auto-Tick Enabled`**, or use the shortcut `Ctrl + K`to start the simulation. <br />
