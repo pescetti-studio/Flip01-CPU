@@ -25,7 +25,7 @@ In Flip01, there are 10 main registers (+ 1), and their size and connection (dat
 + **AX**: general purpose register -> 8 bit 
 + **BX**: general purpose register -> 8 bit 
 + **SAX**: Status AX -> 8 bit 
-+ **SBX**: Status AX -> 8 bit
++ **SBX**: Status BX -> 8 bit
 + **DR**: Data Register -> 16 bit
 + **IR**: Instruction Register -> 8 bit 
 + **ALUIN**: ALU input register -> 8 bit
