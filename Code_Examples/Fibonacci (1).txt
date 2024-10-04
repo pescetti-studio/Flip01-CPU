@@ -1,50 +1,0 @@
-N = 0FIB0 = 0FIB1 = 0FIB_next = 0index = 0RES = 0
-// initialize N = 8 (the position in the Fibonacci sequence to calcolate)
-load$ ax 8
-store ax N
-
-// initialize FIB0 = 0 (the first Fibonacci number)
-load$ ax 0
-store ax FIB0
-
-// inizialize FIB1 = 1 (the second Fibonacci number)
-load$ ax 1 
-store ax FIB1
-
-// inizialize index = 2
-load$ ax 2
-store ax index
-
-FIB_LOOP:
-
-// check if index > N
-cmp ax N
-jg END
-
-// calculate the next Fibonacci number: FIB_next = FIB0 + FIB1
-load ax FIB0
-load bx FIB1
-addR
-store ax FIB_next
-
-// shift the values for the next iteration: FIB0 <- FIB1 <- FIB_next 
-load ax FIB1
-store ax FIB0
-
-load ax FIB_next
-store ax FIB1
-
-// increment the index: index = index + 1
-load ax index
-inc ax
-store ax index
-
-// jump back to the beginning of the loop
-jmp FIB_LOOP
-
-END:
-
-// final result in FIB_next
-load ax FIB_next
-store ax RES
-pause
