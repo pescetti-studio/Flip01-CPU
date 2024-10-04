@@ -1,3 +1,5 @@
+// Calculate the product of two numbers, varA and varB (e.g. varA = 10, varB = 5), and store it in RES
+
 // Initialize the two operand
 varA = 10
 varB = 5
@@ -30,7 +32,6 @@ cmp$ BX 0
 
 // If the value in BX > 0, repeat the loop
 jg MUL_LOOP
-
 END:
 
 // Save the value from AX to RES into the RAM
