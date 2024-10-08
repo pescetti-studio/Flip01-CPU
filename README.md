@@ -15,7 +15,7 @@ Data and addresses travel on two separate connection networks called the **data 
 ![datapath](https://github.com/user-attachments/assets/dc22cab1-69b5-413c-aa09-b63efe2d0078)
 
 Flip01 is based on a **Harvard architecture**, meaning that data and instructions (the actions the processor must execute) are stored in two separate memories: **MEM1** for data and **MEM2** for instructions. <br />
-MEM1 is an _8-bit memory_ with a capacity of 64 KB, while MEM2 is a _9-bit memory_ with a capacity of 64 KB. <br />
+MEM1 is an _8-bit memory_ with a capacity of 64 KB, while MEM2 is a _9-bit memory_ with the same capacity of 64 KB. <br />
 
 ## Registers
 
