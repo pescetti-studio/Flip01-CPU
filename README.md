@@ -5,7 +5,7 @@ A longform covering everything about the processor is available for free on _[Me
 ![circuit](https://github.com/user-attachments/assets/ae60af9d-e89c-4f0f-9f27-20bd5aaf34da)
 
 > [!NOTE]
-> Both the assembler and the entire Flip01 project are still under development and will receive numerous updates and expansions in the coming months.
+> Both the assembler and the entire Flip01 project are still under development and will receive numerous updates and expansions in the coming months. Follow us on _[Patreon](https://www.patreon.com/PescettiStudio/posts)_ (it’s free, of course) to stay updated
 
 ### Overview
 
