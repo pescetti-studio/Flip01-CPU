@@ -1,6 +1,6 @@
 # Flip01-CPU
 _A small &amp; simple 8-bit CPU developed in [Logisim Evolution](https://github.com/logisim-evolution/logisim-evolution)_.<br />
-A longform covering everything about the processor is available for free on _[Medium](https://medium.com/@biasolo.riccardo/flip01-a-simple-yet-versatile-8-bit-cpu-fc01c36d5922)_.
+A longform article covering everything about the processor is available for free on _[Medium](https://medium.com/@biasolo.riccardo/flip01-a-simple-yet-versatile-8-bit-cpu-fc01c36d5922)_.
 
 ![circuit](https://github.com/user-attachments/assets/ae60af9d-e89c-4f0f-9f27-20bd5aaf34da)
 
