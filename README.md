@@ -136,7 +136,7 @@ For a more detailed overview of the Flip01 CPU, please refer to the [Flip01 manu
 
 # The assembler
 
-This program is responsible for **translating mnemonic instructions** _(load, sub, add$, etc.)_ **into their corresponding opcodes**, while also converting numeric values and memory references into formats understandable by the processor. <br />
+This program is responsible for **translating mnemonic instructions** _(load, sub, add$, etc.)_ **into their corresponding opcodes**, _(02, 09, 50,etc.)_ while also converting numeric values and memory references into formats understandable by the processor. <br />
 
 ![assembler](https://github.com/user-attachments/assets/f566485a-f58b-4197-93c4-3c9407546eac)
 
