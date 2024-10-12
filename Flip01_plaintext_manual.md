@@ -3,7 +3,7 @@
 > [!NOTE]
 > _This is an almost exact copy of the article published for free on _[Medium](https://medium.com/@biasolo.riccardo/flip01-a-simple-yet-versatile-8-bit-cpu-fc01c36d5922)_, and it includes all the theoretical material gathered on the Flip01 processor._ <br />
 > _It can also be seen as an extremely simplified manual, designed to make the project accessible to as many people as possible._ <br />
-> _To achieve this level of abstraction without getting lost in technical details, I’ve employed a language that isn’t always technically precise, yet I’ve ensured that its correctness is preserved._ <br />
+> _To achieve this level of abstraction without getting lost in technical details, we’ve employed a language that isn’t always technically precise, yet I’ve ensured that its correctness is preserved._ <br />
 
 All the files mentioned are available here on GitHub, and future updates and implementations will be previewed and thoroughly discussed on our _**free**_ _[Patreon](https://www.patreon.com/PescettiStudio/posts)_ page.
 
@@ -690,7 +690,7 @@ Comments can only be added at the beginning of a new line. <br />
 > [!NOTE]
 >The assembler was developed in _C/C++_ using the _Dev C++ IDE_.
 
-I hope that the UI and UX are quite intuitive, but it may be helpful to explicitly outline **all possible errors**, their **corresponding codes**, and **how to resolve them**: <br />
+We hope that the UI and UX are quite intuitive, but it may be helpful to explicitly outline **all possible errors**, their **corresponding codes**, and **how to resolve them**: <br />
 
 ## Errors
 - **E — 000:** The file you are trying to open and read using the designated button may be corrupted or unreachable. <br />
