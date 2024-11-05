@@ -193,4 +193,4 @@ Once you have made this choice, in the same dropdown menu, just press **`Auto-Ti
 # Updates
 Flip01 now also has an **FPGA implementation**!
 The project, called _FliPGA01_, is of course free and open source.
-You can find all the files here on **[GitHub](https://github.com/pescetti-studio/FlipGA01)** and **[Patreon](https://www.patreon.com/PescettiStudio/posts)**, and there’s a detailed guide available on Medium **[here](https://medium.com/@crocilorenzo01/flipga01-a-simple-8-bit-cpu-on-a-fpga-9ac46a780950)**.
+You can find all the files here on **[GitHub](https://github.com/pescetti-studio/FlipGA01)** and **[Patreon](https://www.patreon.com/PescettiStudio/posts)**, and there’s a detailed guide available on Medium **[here](https://medium.com/@crocilorenzo01/flipga01-a-simple-8-bit-cpu-on-a-fpga-db3e0fb82fe6)**.
