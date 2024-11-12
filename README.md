@@ -194,6 +194,6 @@ You can modify the "simulation speed" by changing the **clock frequency** in the
 Once you have made this choice, in the same dropdown menu, just press **`Auto-Tick Enabled`**, or use the shortcut `Ctrl + K`to start the simulation. <br />
 
 # Updates
-Flip01 now also has an **FPGA implementation**!
-The project, called _FliPGA01_, is of course free and open source.
+Flip01 now also has an **FPGA implementation**! <br/>
+The project, called _FliPGA01_, is of course free and open source. <br/>
 You can find all the files here on **[GitHub](https://github.com/pescetti-studio/FlipGA01)** and **[Patreon](https://www.patreon.com/PescettiStudio/posts)**, and there’s a detailed guide available on Medium **[here](https://medium.com/@crocilorenzo01/flipga01-a-simple-8-bit-cpu-on-a-fpga-db3e0fb82fe6)**.
