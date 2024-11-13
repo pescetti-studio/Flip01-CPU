@@ -1,25 +1,36 @@
 # Flip01-CPU
-_A small &amp; simple 8-bit CPU developed in [Logisim Evolution](https://github.com/logisim-evolution/logisim-evolution)_.<br />
-A longform article covering everything about the processor is available for free on _[Medium](https://medium.com/@biasolo.riccardo/flip01-a-simple-yet-versatile-8-bit-cpu-fc01c36d5922)_.
+**Flip01**, _short for First Level Instructional Processor_, is a small and simple **8-bit CPU** with a **16-bit address bus**. <br />
+This means it can handle data ranging from 0 to 2 <sup>8</sup> - 1 _(255)_ and can store up to 2 <sup>16</sup> _(65536 bit ~ 64 KB)_ different pieces of data. <br />
+Data and addresses travel on two separate connection networks called the **data bus** and **address bus**, respectively. <br />
+
+The **logic design** was developed in [Logisim Evolution](https://github.com/logisim-evolution/logisim-evolution), while the **assembler**, which is also available in this repository, was built in **C++**. <br />
+There’s a **longform article** on [Medium](https://medium.com/@biasolo.riccardo/flip01-a-simple-yet-versatile-8-bit-cpu-fc01c36d5922) detailing how to approach the Flip01 project from scratch, available **for free**.
+
+_You can also find a manual in the repository in both [PDF](Flip01_manual.pdf) and [markdown](Flip01_plaintext_manual.md) formats._ <br/>
+Here’s a preview:
 
 ![Flip01](https://github.com/user-attachments/assets/45741e75-69c2-41a8-b22b-c60d4aec5dda)
 
 > [!NOTE]
-> Both the assembler and the entire Flip01 project are still under development and will receive numerous updates and expansions in the coming months.
-
-> [!TIP]
-> If you like what we’re doing, you can follow us **FOR FREE** on [Patreon](https://www.patreon.com/c/PescettiStudio/posts) for early updates and exclusive content!
+> The entire Flip01 project is still actively in development. <br/>
+> While it’s already fully functional, it will continue to get new features and updates over the coming weeks. <br/>
+> (november 2024)
 
 ### Overview
 
-**Flip01**, _short for First Level Instructional Processor_, is a small **8-bit CPU** with a **16-bit address bus**. <br />
-This means it can handle data ranging from 0 to 2 <sup>8</sup> - 1 (255) and can store up to 2 <sup>16</sup> (65536 bit ~ 64 KB) different pieces of data. <br />
-Data and addresses travel on two separate connection networks called the **data bus** and **address bus**, respectively. <br />
+Flip01 is based on a **Harvard architecture**, meaning that data and instructions (the actions the processor must execute) are stored in two separate memories: **MEM1** for data and **MEM2** for instructions. <br />
+MEM1 is an _8-bit memory_ with a capacity of 64 KB, while MEM2 is a _9-bit memory_ with the same capacity of 64 KB. <br />
+
+> [!IMPORTANT]
+> This is an excerpt from the manual available in the repository.
+> For a more detailed overview of the Flip01 CPU, please refer to the free Flip01 manual: [Medium](https://medium.com/@biasolo.riccardo/flip01-a-simple-yet-versatile-8-bit-cpu-fc01c36d5922), [PDF](Flip01_manual.pdf) or [markdown](Flip01_plaintext_manual.md).
 
 ![datapath](https://github.com/user-attachments/assets/dc22cab1-69b5-413c-aa09-b63efe2d0078)
 
-Flip01 is based on a **Harvard architecture**, meaning that data and instructions (the actions the processor must execute) are stored in two separate memories: **MEM1** for data and **MEM2** for instructions. <br />
-MEM1 is an _8-bit memory_ with a capacity of 64 KB, while MEM2 is a _9-bit memory_ with the same capacity of 64 KB. <br />
+> [!TIP]
+> If you like what we’re doing, you can follow us **FOR FREE** on [Patreon](https://www.patreon.com/c/PescettiStudio/posts) for early updates and exclusive content!
+> Even a _“simple”_ follow really helps keep these projects free and open source.
+> **Thanks :)**
 
 ## Registers
 
@@ -134,8 +145,8 @@ Instruction     |    op-code    |               Type              |
 **output**      |      0x5F     |         _I/O Instruction_       |
 
 > [!IMPORTANT]
-> This is an excerpt from the manual available in the repository. <br />
-For a more detailed overview of the Flip01 CPU, please refer to the [Flip01 manual](Flip01_manual.pdf).
+> This is an excerpt from the manual available in the repository.
+> For a more detailed overview of the Flip01 CPU, please refer to the free Flip01 manual: [Medium](https://medium.com/@biasolo.riccardo/flip01-a-simple-yet-versatile-8-bit-cpu-fc01c36d5922), [PDF](Flip01_manual.pdf) or [markdown](Flip01_plaintext_manual.md).
 
 # The assembler
 
@@ -193,7 +204,15 @@ You can modify the "simulation speed" by changing the **clock frequency** in the
 
 Once you have made this choice, in the same dropdown menu, just press **`Auto-Tick Enabled`**, or use the shortcut `Ctrl + K`to start the simulation. <br />
 
+> [!TIP]
+> If you like what we’re doing, you can follow us **FOR FREE** on [Patreon](https://www.patreon.com/c/PescettiStudio/posts) for early updates and exclusive content!
+> Even a _“simple”_ follow really helps keep these projects free and open source.
+> **Thanks :)**
+
 # Updates
 Flip01 now also has an **FPGA implementation**! <br/>
 The project, called _FliPGA01_, is of course free and open source. <br/>
 You can find all the files here on **[GitHub](https://github.com/pescetti-studio/FlipGA01)** and **[Patreon](https://www.patreon.com/PescettiStudio/posts)**, and there’s a detailed guide available on Medium **[here](https://medium.com/@crocilorenzo01/flipga01-a-simple-8-bit-cpu-on-a-fpga-db3e0fb82fe6)**.
+
+![Flipga01](https://github.com/user-attachments/assets/e0d2fe09-b53d-4e25-9b69-eb30a672fb4b)
+
