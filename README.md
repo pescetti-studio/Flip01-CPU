@@ -1,15 +1,5 @@
 # Flip01: a simple yet versatile 8-bit CPU
 
-> [!NOTE]
-> _This is an almost exact copy of the article published for free on _[Medium](https://medium.com/@biasolo.riccardo/flip01-a-simple-yet-versatile-8-bit-cpu-fc01c36d5922)_, and it includes all the theoretical material gathered on the Flip01 processor._ <br />
-> _It can also be seen as an extremely simplified manual, designed to make the project accessible to as many people as possible._ <br />
-> _To achieve this level of abstraction without getting lost in technical details, we’ve employed a language that isn’t always technically precise, yet I’ve ensured that its correctness is preserved._ <br />
-
-All the files mentioned are available here on GitHub, and future updates and implementations will be previewed and thoroughly discussed on our _**free**_ _[Patreon](https://www.patreon.com/PescettiStudio/posts)_ page.
-
-![Flip01](https://github.com/user-attachments/assets/b1171cdc-709e-41f8-a645-86fb79e8474b)
-> Complete logic circuit of Flip01 built in Logisim Evolution <br />
-
 # Overview
 
 **Flip01**, short for _First Level Instructional Processor_, is a small **8-bit CPU** with a **16-bit address bus**. <br />
