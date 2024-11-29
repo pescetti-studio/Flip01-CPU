@@ -150,6 +150,11 @@ This indicates that an extra bit would have been required for the result to be c
 - **Z _(Zero)_:** This bit is set if **the result of the operation is zero**.
 - **N _(Negative)_:** This bit is set if **the result of the operation is negative** for any reason.
 
+> [!TIP]
+> Quick reminder before we continue: if you enjoy these kinds of projects, feel free to follow us **FOR FREE** on [Patreon](https://www.patreon.com/c/PescettiStudio/posts)!
+> You’ll get early updates and exclusive content, and even a “_simple_” follow really helps keep these projects free and open source.
+> Thanks :)
+
 # INSTRUCTIONS
 
 Instructions represent the full range of actions the processor can perform. <br />
@@ -753,6 +758,11 @@ To achieve this, the following steps are executed in sequence:
 > The mechanism that outlines the sequential operation of Flip01’s micro program counter.
 
 The memory accessed by the micro program counter (MEM3) is non-volatile, and **the set of control signal instructions is referred to as the ISA** (_Instruction Set Architecture_).
+
+> [!TIP]
+> One last note before wrapping up : if you enjoy these kinds of projects, feel free to follow us **FOR FREE** on [Patreon](https://www.patreon.com/c/PescettiStudio/posts)!
+> You’ll get early updates and exclusive content, and even a “_simple_” follow really helps keep these projects free and open source.
+> Thanks :)
 
 # How to Use the Processor (Beginner’s Tutorial)
 The first step is to open the file **[Flip01_Circuit.circ](Flip01_Circuit.circ)** with **[Logisim Evolution](https://github.com/logisim-evolution/logisim-evolution)**. <br />
