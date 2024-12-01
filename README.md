@@ -796,3 +796,7 @@ Flip01 is a project by **Biasolo Riccardo** and **Croci Lorenzo**, developed for
 
 If you come across any errors, inaccuracies, or typos, feel free to reach out to us! <br />
 Send us an email at _**pescettistudio@gmail.com**_ with **[bug]** at the beginning of the subject line. <br />
+
+Do you like this stuff? </br>
+Support us with a [donation on PayPal](https://paypal.me/PescettiStudio?country.x=IT&locale.x=it_IT)! </br>
+It helps us keep everything free and open source for everyone. </br>
