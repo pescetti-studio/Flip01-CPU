@@ -654,7 +654,7 @@ Writing programs and manually replacing op-codes, hexadecimal values, and addres
 # THE ASSEMBLER
 This program is responsible for **translating mnemonic instructions** (load, sub, add$, etc.) into their corresponding opcodes, while also converting numeric values and memory references into formats understandable by the processor.
 
-![assembler](https://github.com/user-attachments/assets/e6f7a9ea-35d1-405c-89e4-5e3018ab69d1)
+![4](https://github.com/user-attachments/assets/6da3b320-6bfd-496b-ae5a-4adff5caa7a8)
 > The assembler after startup
 
 The code should be written in the panel that, on startup, displays the message `“write your text here”`. <br />
@@ -675,6 +675,29 @@ just click the corresponding buttons. <br />
 
 After specifying the name or the path for the current file, it won’t be necessary to do so again, and all subsequent saves will be made to that file. <br />
 This continues until the user initializes a new file via the New Code button. <br />
+
+The assembler comes with a built-in decimal-hexadecimal-binary converter. </br>
+To access it, just click the **Conversion Table** button, which opens the converter in a new window. </br>
+Simply select the input format, enter the value in the text bar, and the conversions into all three formats will happen automatically. </br>
+A control panel below the results displays any input errors or format issues in real time.  
+
+![6](https://github.com/user-attachments/assets/2d74f8f1-4a2c-4a90-9410-63871ffaae67)
+> The converter
+
+> [!NOTE]
+> Closing the converter window won’t affect the assembler, but closing the assembler will also close the converter window if it’s open.  
+
+Another handy feature of the assembler is the **View Manual** button. </br>
+As the name suggests, it opens the free Flip01 manual in your default browser. </br>
+The manual is incredibly useful for programming, as it includes a full description of the processor, along with opcodes, details, and explanations of all supported CPU instructions.  
+
+The manual is a visually enhanced and easier-to-read version of the information found in this README. </br>
+It’s the same free manual available on Medium, which has been previously mentioned.  
+
+Any changes made in the assembler’s text editor are automatically saved in a _log.txt_ file located in the same folder as the assembler. </br>
+If the assembler crashes for any reason, your unsaved work won’t be lost. </br>
+You can recover it by opening the _log.txt_ file directly from the assembler. </br>
+Think of it as a real-time safety net, creating backup files on the fly to safeguard your progress in case something goes wrong.
 
 **To add a comment to the code**, use the following syntax:
 ```
@@ -771,9 +794,8 @@ At this point, the file containing the entire circuit should open, but for now, 
 To do this, you will need to open the **[assembler](Flip01_Assembler)** and write the code, or open a previously prepared file for this purpose _(you can find examples in the [Code Examples](Code_Examples) folder)_. <br />
 If the code is correct and contains no errors, the assembler will directly produce the code readable by the CPU. <br />
 
-It should look something like this:
-
-![assembler2](https://github.com/user-attachments/assets/5304f25f-a87e-4f17-a80b-855cfc091086)
+It should look like this: </br>
+![5](https://github.com/user-attachments/assets/a290e868-8bca-40de-9aa2-5e11f9cc6cc9)
 > Program successfully assembled: No errors or warnings detected.
 
 At this point, simply copy the first line of hexadecimal values _(the one corresponding to the data)_ and paste it into the **RAM MEM1** component in the Logisim file. To do this, right-click on the component and select **`Edit Contents`**. <br />
@@ -796,6 +818,37 @@ Flip01 is a project by **Biasolo Riccardo** and **Croci Lorenzo**, developed for
 
 If you come across any errors, inaccuracies, or typos, feel free to reach out to us! <br />
 Send us an email at _**pescettistudio@gmail.com**_ with **[bug]** at the beginning of the subject line. <br />
+
+# Updates
+
+## FliPGA01
+![Flipga01v2](https://github.com/user-attachments/assets/b26b4ea7-9e27-4e5a-aa8a-b5ccd1575914)
+Flip01 now also has an FPGA implementation! </br>
+The project, called FlipGA01, is of course free and open source. </br>
+You can find all the files here on [GitHub](https://github.com/pescetti-studio/FliPGA01), and there’s a detailed guide available on [Medium](https://medium.com/@crocilorenzo01/flipga01-a-simple-8-bit-cpu-on-a-fpga-db3e0fb82fe6).
+
+## It’s Dangerous to Go Alone! Take This
+![IDTGATT](https://github.com/user-attachments/assets/f199704e-40fe-4e39-a582-2b33414bb2bc)
+This one’s all about the assembler, and it introduces three handy tools to make your life a little easier:
+1. **Conversion Table**
+Now you can quickly switch between binary, decimal, and hexadecimal values using a dedicated button. </br>
+The converter opens in a separate window, leaving the main assembler workspace untouched.
+
+2. **View Manual**
+A new button lets you open the free Flip01 manual in your default browser. </br>
+This free detailed guide covers not just how to program Flip01, but everything you need to know about the processor itself.
+
+3. **Auto-Save Feature**
+This one's a bit behind-the-scenes: every change you make in the assembler is now automatically saved to a file named _log.txt_ in the same folder as the assembler. </br>
+If the program crashes unexpectedly, you won’t lose your work! </br>
+Simply click _Open File_ after restarting, select _log.txt_, and pick up right where you left off.
+
+## Instruction Bonanza
+_coming soon_ - December 16 2024, already available for free on [Patreon](https://www.patreon.com/posts/patreon-timed-117010859)
+## X Factor
+_coming soon_ - December 23 2024, already available for free on [Patreon](https://www.patreon.com/posts/patreon-timed-117010859)
+## Glorious Evolution
+_coming soon_ - December 30 2024, already available for free on [Patreon](https://www.patreon.com/posts/patreon-timed-117010859)
 
 Do you like this stuff? </br>
 Support us with a [donation on PayPal](https://paypal.me/PescettiStudio?country.x=IT&locale.x=it_IT)! </br>
