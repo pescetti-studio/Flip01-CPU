@@ -847,8 +847,6 @@ Simply click _Open File_ after restarting, select _log.txt_, and pick up right w
 _coming soon_ - December 16 2024, already available for free on [Patreon](https://www.patreon.com/posts/patreon-timed-117010859)
 ## X Factor
 _coming soon_ - December 23 2024, already available for free on [Patreon](https://www.patreon.com/posts/patreon-timed-117010859)
-## Glorious Evolution
-_coming soon_ - December 30 2024, already available for free on [Patreon](https://www.patreon.com/posts/patreon-timed-117010859)
 
 Do you like this stuff? </br>
 Support us with a [donation on PayPal](https://paypal.me/PescettiStudio?country.x=IT&locale.x=it_IT)! </br>
