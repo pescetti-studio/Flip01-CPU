@@ -830,15 +830,15 @@ You can find all the files here on [GitHub](https://github.com/pescetti-studio/F
 ## It’s Dangerous to Go Alone! Take This
 ![IDTGATT](https://github.com/user-attachments/assets/f199704e-40fe-4e39-a582-2b33414bb2bc)
 This one’s all about the assembler, and it introduces three handy tools to make your life a little easier:
-1. **Conversion Table**
+1. **Conversion Table** </br>
 Now you can quickly switch between binary, decimal, and hexadecimal values using a dedicated button. </br>
 The converter opens in a separate window, leaving the main assembler workspace untouched.
 
-2. **View Manual**
+2. **View Manual** </br>
 A new button lets you open the free Flip01 manual in your default browser. </br>
 This free detailed guide covers not just how to program Flip01, but everything you need to know about the processor itself.
 
-3. **Auto-Save Feature**
+3. **Auto-Save Feature** </br>
 This one's a bit behind-the-scenes: every change you make in the assembler is now automatically saved to a file named _log.txt_ in the same folder as the assembler. </br>
 If the program crashes unexpectedly, you won’t lose your work! </br>
 Simply click _Open File_ after restarting, select _log.txt_, and pick up right where you left off.
