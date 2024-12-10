@@ -679,7 +679,7 @@ This continues until the user initializes a new file via the New Code button. <b
 The assembler comes with a built-in decimal-hexadecimal-binary converter. </br>
 To access it, just click the **Conversion Table** button, which opens the converter in a new window. </br>
 Simply select the input format, enter the value in the text bar, and the conversions into all three formats will happen automatically. </br>
-A control panel below the results displays any input errors or format issues in real time.  
+A control panel below the results **displays any input errors or format issues** in real time.  
 
 ![6](https://github.com/user-attachments/assets/2d74f8f1-4a2c-4a90-9410-63871ffaae67)
 > The converter
