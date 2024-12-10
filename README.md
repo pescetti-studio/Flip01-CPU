@@ -567,9 +567,6 @@ It jumps to the specified _[label]_ if and only if the first operand in the prev
     
 The jge instruction requires 1 clock cycle to execute.
 
-![13](https://github.com/user-attachments/assets/3646eb09-895e-4464-8763-bcedab870569)
-> All the available instructions for Flip01, along with the control signals that define the microinstructions for each clock cycle.
-
 A processor must also be capable of receiving data from external sources, processing it, and displaying it to the user.<br />
 To accomplish this, Flip01 utilizes an external circuit called the Input & Output Manager, or simply the: 
 
