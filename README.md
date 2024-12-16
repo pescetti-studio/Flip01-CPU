@@ -915,7 +915,7 @@ We’ve added six new instructions
 > The previously named `**pause**` instruction has been renamed to `**stop**` to avoid confusion.
 > _All the sample programs here on GitHub and the various manuals online have already been updated._
 
-## X Factor
+## 4) X Factor
 _coming soon_ - December 23 2024, already available for free on [Patreon](https://www.patreon.com/posts/patreon-timed-117010859)
 
 Do you like this stuff? </br>
