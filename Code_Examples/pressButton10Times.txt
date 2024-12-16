@@ -1,0 +1,42 @@
+// If a button is pressed 10 times, an LED turns on
+// If it is pressed another 10 times, the LED turns off
+
+// Declare the devices and the associated ports
+> BTN0 23
+< LED0 04
+< RST 31
+
+// AX will be used as a counter for the number of times the BTN0 button has been pressed
+load$ AX 0
+loop:
+
+// Read the value of the button into BX and add it to the AX register
+input BX BTN0
+addR
+
+// If AX = 10, turn on the LED, otherwise continue
+cmp$ AX 10
+je TurnLedOn
+
+// If AX = 20, turn off the LED, otherwise continue
+cmp$ AX 20
+je TurnLedOff
+
+// Return to button reading
+jmp loop
+
+TurnLedOn:
+// Send a bit to the LED0 to turn it on
+load$ bx 1
+output bx LED0
+
+jmp loop
+
+TurnLedOff:
+// Send a bit to the reset output to turn off LED0
+load$ bx 1
+output bx RST
+
+load$ ax 0
+
+jmp loop

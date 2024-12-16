@@ -1,0 +1,22 @@
+> keyboard 00
+> btn0 23
+< tty 00
+< rst 31
+
+load$ bx 1
+
+loop:
+
+input ax keyboard
+output ax tty
+output bx rst
+
+input ax btn0
+cmp$ ax 1
+je reset
+jmp loop
+
+reset:
+load$ ax 2
+output ax rst 
+jmp loop

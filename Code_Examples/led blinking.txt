@@ -1,0 +1,29 @@
+< led 04
+
+count = 0
+
+load ax count
+save ax
+
+LOOP:
+read ax
+inc ax
+save ax
+cmp$ ax 10
+je TURNON
+cmp$ ax 20 
+je TURNOFF
+jmp LOOP
+
+TURNON:
+load$ bx 1
+output bx led
+jmp LOOP
+
+TURNOFF:
+load$ bx 2
+output bx led
+load$ ax 0
+save ax
+jmp LOOP
+

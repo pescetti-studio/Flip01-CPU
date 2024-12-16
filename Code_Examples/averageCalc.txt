@@ -1,0 +1,19 @@
+// Calculate the floor average of two numbers X and Y (e.g., X = 3, Y = 5) and store it in Result
+
+X = 3
+Y = 5
+// Declare all necessary memory spaces
+Result = 0
+
+load AX  X
+load BX Y
+
+// Sum of the AX and BX registers, which equals 3 + 5. The result is saved in AX
+addR
+
+// A right shift by one position is equivalent to dividing by 2
+shiftr$ AX 1
+
+// Store the obtained result in Result and terminate the program
+store AX Result
+stop
