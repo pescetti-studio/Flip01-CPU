@@ -912,7 +912,7 @@ We’ve added six new instructions
 > All the details on how to use these new instructions can be found in the dedicated section of this manual.
 
 > [!IMPORTANT]
-> The previously named `**pause**` instruction has been renamed to `**stop**` to avoid confusion.
+> The previously named **`pause`** instruction has been renamed to **`stop`** to avoid confusion.
 > _All the sample programs here on GitHub and the various manuals online have already been updated._
 
 ## 4) X Factor
