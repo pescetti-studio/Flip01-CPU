@@ -158,7 +158,7 @@ This indicates that an extra bit would have been required for the result to be c
 # INSTRUCTIONS
 
 Instructions represent the full range of actions the processor can perform. <br />
-Flip01 has **39 instructions**, each identified by a **unique operation code** _(op-code)_ in hexadecimal format. <br />
+Flip01 has **45 instructions**, each identified by a **unique operation code** _(op-code)_ in hexadecimal format. <br />
 
 Instructions consist of **micro-instructions**, which are movements of data between registers or arithmetic and logical operations. <br />
 For example, the addR instruction, which adds the contents of the two general-purpose registers AX and BX, is made up of the following micro-instructions:
@@ -264,6 +264,16 @@ The flags are updated upon completion of this operation.
     
 The cmp instruction requires 2 clock cycles to execute.
 
+### **test** 
+`(syntax: test [register] [variable])` </br>
+_**op-code: 0x69**_ </br>
+This instruction performs an AND operation between the value stored in the _[register]_ and the specified _[variable]_. The result is stored in the specified register. </br>
+_[register]_ AND _[variable]_
+- MEM1 _[variable]_ -> DR, _[register]_ -> ALUA
+- DR AND ALUA -> ALUOUT
+  
+The test instruction requires 2 clock cycles to execute.
+
 ## Single-Operand Instructions
 These instructions involve only one parameter, usually the general-purpose register (AX or BX) they refer to. <br />
 ```
@@ -330,6 +340,15 @@ This instruction copies the value from the corresponding status register into th
   - STATUS _[register]_ -> _[register]_
     
 The read instruction requires 1 clock cycle to execute.
+### **copy** 
+`(syntax: copy _[register]_)` </br>
+_**op-code: 0x73**_ </br>
+This instruction copies the value in the specified [register] to another register.
+- _[register]_ -> ALUA
+- ALUA OR 0 -> ALUOUT
+- ALUOUT -> AX, ALUOUT -> BX
+
+The copy instruction requires 3 clock cycles to execute.
 
 ## Zero-Operand Instructions
 These instructions do not take any parameters. <br />
@@ -393,14 +412,40 @@ This instruction swaps the values stored in the two general-purpose registers (A
   - BX -> AX, ALUA-> ALUOUT
     
 The flip instruction requires 2 clock cycles to execute.
-### **pause** 
-`(syntax: pause)` <br />
+### **stop** 
+`(syntax: stop)` <br />
 _**op-code: 0x38**_ <br />
 This instruction halts the execution of the program.
   - CLKDIS = 1
   - (wait)
     
-The pause instruction requires 2 clock cycles to execute.
+The stop instruction requires 2 clock cycles to execute.
+### **testR** 
+`(syntax: testR)` </br>
+_**op-code: 0x6B**_ </br>
+This instruction performs an AND operation between the two general-purpose registers. The result is stored in the AX register. </br>
+AX AND BX
+- [register] -> ALUA
+- ALUA -1 -> ALUOUT
+- ALUOUT -> [register]
+  
+The testR instruction requires 3clock cycles to execute.
+### **nop** 
+`(syntax: nop)` </br>
+_**op-code: 0x6F**_ </br>
+This instruction does nothing.
+- nothing
+  
+The nop instruction requires 1 clock cycle to execute.
+### **wait** 
+`(syntax: wait)` </br>
+_**op-code: 0x70**_ </br>
+This instruction does nothing for 3 clock cycles, creating a 5-cycle pause in execution (including 2 fetch cycles).
+- nothing
+- nothing
+- nothing
+  
+The wait instruction requires 3 clock cycles to execute.
 
 ## Immediate Instructions
 These instructions consist of two parameters: the first is the general-purpose register (AX or BX) they refer to, and the second is the constant value to be considered.
@@ -485,6 +530,16 @@ The comparison is performed by subtracting the _[value]_ from the register’s v
   - ALUA OR DR -> ALUOUT
     
 The cmp$ instruction requires 2 clock cycles to execute.
+### **test$** 
+`(syntax: test _[register] [value]_)` </br>
+_**op-code: 0x6D**_ </br>
+This instruction performs an AND operation between the value stored in the _[register]_ and the specified _[variable]_. The result is stored in the _[register]_. </br>
+_[register]_ AND _[variable]_
+- _[register]_ -> ALUA
+- ALUA — DR-> ALUOUT
+- ALUOUT -> _[register]_
+  
+The test$ instruction requires 3 clock cycles to execute.
 
 ## Jump Instructions
 These instructions interrupt the linear execution of the program to execute code segments identified by labels. 
@@ -818,13 +873,13 @@ Send us an email at _**pescettistudio@gmail.com**_ with **[bug]** at the beginni
 
 # Updates
 
-## FliPGA01
+## 1) FliPGA01
 ![Flipga01v2](https://github.com/user-attachments/assets/b26b4ea7-9e27-4e5a-aa8a-b5ccd1575914)
 Flip01 now also has an FPGA implementation! </br>
 The project, called FlipGA01, is of course free and open source. </br>
 You can find all the files here on [GitHub](https://github.com/pescetti-studio/FliPGA01), and there’s a detailed guide available on [Medium](https://medium.com/@crocilorenzo01/flipga01-a-simple-8-bit-cpu-on-a-fpga-db3e0fb82fe6).
 
-## It’s Dangerous to Go Alone! Take This
+## 2) It’s Dangerous to Go Alone! Take This
 ![IDTGATT](https://github.com/user-attachments/assets/f199704e-40fe-4e39-a582-2b33414bb2bc)
 This one’s all about the assembler, and it introduces three handy tools to make your life a little easier:
 1. **Conversion Table** </br>
@@ -840,8 +895,26 @@ This one's a bit behind-the-scenes: every change you make in the assembler is no
 If the program crashes unexpectedly, you won’t lose your work! </br>
 Simply click _Open File_ after restarting, select _log.txt_, and pick up right where you left off.
 
-## Instruction Bonanza
-_coming soon_ - December 16 2024, already available for free on [Patreon](https://www.patreon.com/posts/patreon-timed-117010859)
+## 3) Instruction Bonanza
+
+We’ve added six new instructions
+
+![bonanza](https://github.com/user-attachments/assets/ee728237-8559-4e89-9a90-73274d34ff0c)
+
+- **test**: Performs an AND operation between the specified general-purpose register and the indicated variable, but doesn’t save the result.
+- **testR**: Performs an AND operation between two registers, again without saving the result.
+- **test$**: Performs an AND operation between the specified general-purpose register and the given value, but doesn’t save the result.
+- **nop**: Does nothing for 1 clock cycle.
+- **wait**: Does nothing for 3 clock cycles. Combined with the 2 fetch cycles, this creates a visible 5-cycle pause in execution.
+- **copy**: Copies the value from the specified general-purpose register into another general-purpose register.
+  
+> [!NOTE]
+> All the details on how to use these new instructions can be found in the dedicated section of this manual.
+
+> [!IMPORTANT]
+> The previously named `**pause**` instruction has been renamed to `**stop**` to avoid confusion.
+> _All the sample programs here on GitHub and the various manuals online have already been updated._
+
 ## X Factor
 _coming soon_ - December 23 2024, already available for free on [Patreon](https://www.patreon.com/posts/patreon-timed-117010859)
 
