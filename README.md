@@ -77,14 +77,14 @@ If registers are used to temporarily store data, as previously mentioned, anothe
 Every processor has a different ALU in terms of **calculation power** or **data handling capabilities**. <br />
 The ALU of Flip01 is designed to take **two 8-bit inputs** and produce a single output of the same size. <br />
 
-Based on the configuration and the combination of **6 binary control signals** (0 or 1), the ALU can perform **7 main operations** and **4 derived ones**.<br />
+Based on the configuration and the combination of **6 binary control signals** (0 or 1), the ALU can perform **8 main operations** and **4 derived ones**.<br />
 The 6 control signals are as follows:
 
 - **BRin:** Sets the second input of the ALU to 0.
-- **s0, s1, s2:** The unique combinations of these signals determine which of the 7 main operations will be executed.
+- **s0, s1, s2:** The unique combinations of these signals determine which of the 8 main operations will be executed.
 - **Cin, op:** These signals control **additional bits** for operations that require them.
 <br />
-The 7 main operations are:
+The 8 main operations are:
 
 - **ADD:** When given two inputs, A and B, this configuration **outputs the sum of the two**: `A + B`
 - **SUB:** With the same inputs, A and B, this configuration **outputs the difference**: `A — B`
@@ -115,7 +115,12 @@ The vacated positions on the left are filled with 0 padding, regardless of the l
 ![8](https://github.com/user-attachments/assets/46f9cf36-4804-4415-861c-f5a69d3c527c)
 > Practical example of how left shift (shiftl) and right shift (shiftr) operations work.
 
-![10](https://github.com/user-attachments/assets/b44dce7c-bda5-4b18-95b8-2b41c6a4eccd)
+- **MUL:** With bits s0, s1, and s2 set this way, **operand A is multiplied by operand B**.
+  The operation performed is a standard arithmetic multiplication.
+
+Below are the specific configurations for the 6 contol signals _(BRin, Cin, op, s0, s1, and s2)_ used for each of the 8 main operations.
+
+![12](https://github.com/user-attachments/assets/7855a9cf-6379-47aa-8ed1-4a9af3610faf)
 > Control signal combinations that define the various main operations indicated.
 
 By manipulating the ALU’s inputs, you can derive **four additional operations**:
@@ -139,7 +144,8 @@ This is the third and final register that communicates with the ALU. <br />
 
 It’s an 8-bit register where **each bit indicates a specific aspect of the most recent operation**:
 
-- **X _(Shift Error)_:** This bit is set if the **number of bits to be shifted exceeds 8**, surpassing the maximum length of the operand involved in the shift operation. <br />
+- **X (Shift/Mul Error):** This bit is set **if the number of bits to shift exceeds 8**, surpassing the maximum allowable length for the operands involved in the shift operation, **or if the result of a multiplication operation exceeds the usual 8-bit limit**.
+  The bit is updated regardless of the operation type. Therefore, if the operation performed is neither a shift (_shiftl or shiftr_) nor a multiplication (_mul_), the X flag bit can be ignored.
 It can be ignored if the executed operation is of a different type.
 - **L _(A < B)_:** This bit is set if **operand A is less than operand B** in absolute value.
 - **E _(A = B)_:** This bit is set if **operand A is equal to operand B** in absolute value.
@@ -158,7 +164,7 @@ This indicates that an extra bit would have been required for the result to be c
 # INSTRUCTIONS
 
 Instructions represent the full range of actions the processor can perform. <br />
-Flip01 has **45 instructions**, each identified by a **unique operation code** _(op-code)_ in hexadecimal format. <br />
+Flip01 has **48 instructions**, each identified by a **unique operation code** _(op-code)_ in hexadecimal format. <br />
 
 Instructions consist of **micro-instructions**, which are movements of data between registers or arithmetic and logical operations. <br />
 For example, the addR instruction, which adds the contents of the two general-purpose registers AX and BX, is made up of the following micro-instructions:
@@ -273,6 +279,17 @@ _[register]_ AND _[variable]_
 - DR AND ALUA -> ALUOUT
   
 The test instruction requires 2 clock cycles to execute.
+
+### **mul** 
+`(syntax: mul [register][variable])` </br>
+_**op-code: 0x60**_ </br>
+This instruction multiplies the value stored in the _[register]_ by the value specified in _[variable]_.
+_[register]_ = _[register]_ * _[variable]_
+- MEM1 _[variable]_ -> DR, _[register]_ -> ALUA
+- ALUA * DR -> ALUOUT
+- ALUOUT -> _[register]_
+  
+The mul instruction requires 3 clock cycles to execute.
 
 ## Single-Operand Instructions
 These instructions involve only one parameter, usually the general-purpose register (AX or BX) they refer to. <br />
@@ -447,6 +464,17 @@ This instruction does nothing for 3 clock cycles, creating a 5-cycle pause in ex
   
 The wait instruction requires 3 clock cycles to execute.
 
+### **mulR**
+`(syntax: mulR)` </br>
+_**op-code: 0x63**_ </br>
+This instruction multiplies the values in the two general-purpose registers. The result is stored in the AX register. </br>
+AX = AX * BX
+- AX -> ALUA
+- ALUA * BX -> ALUOUT
+- ALUOUT -> AX
+  
+The mulR instruction requires 3 clock cycles to execute.
+
 ## Immediate Instructions
 These instructions consist of two parameters: the first is the general-purpose register (AX or BX) they refer to, and the second is the constant value to be considered.
 ```
@@ -540,6 +568,17 @@ _[register]_ AND _[variable]_
 - ALUOUT -> _[register]_
   
 The test$ instruction requires 3 clock cycles to execute.
+
+### **mul$** 
+`(syntax: mul$ [register][value])` </br>
+_**op-code: 0x66**_ </br>
+This instruction multiplies the value stored in the _[register]_ by the value specified in _[value]_. </br>
+_[register]_ = _[register]_ * _[value]_
+- _[register]_ -> ALUA
+- ALUA * DR -> ALUOUT
+- ALUOUT -> _[register]_
+  
+The mul$ instruction requires 3 clock cycles to execute.
 
 ## Jump Instructions
 These instructions interrupt the linear execution of the program to execute code segments identified by labels. 
@@ -873,13 +912,13 @@ Send us an email at _**pescettistudio@gmail.com**_ with **[bug]** at the beginni
 
 # Updates
 
-## 1) FliPGA01
+## Upgrade 1) FliPGA01
 ![Flipga01v2](https://github.com/user-attachments/assets/b26b4ea7-9e27-4e5a-aa8a-b5ccd1575914)
-Flip01 now also has an FPGA implementation! </br>
+The basic version of Flip01 now also has an FPGA implementation! </br>
 The project, called FlipGA01, is of course free and open source. </br>
 You can find all the files here on [GitHub](https://github.com/pescetti-studio/FliPGA01), and there’s a detailed guide available on [Medium](https://medium.com/@crocilorenzo01/flipga01-a-simple-8-bit-cpu-on-a-fpga-db3e0fb82fe6).
 
-## 2) It’s Dangerous to Go Alone! Take This
+## Upgrade 2) It’s Dangerous to Go Alone! Take This
 ![IDTGATT](https://github.com/user-attachments/assets/f199704e-40fe-4e39-a582-2b33414bb2bc)
 This one’s all about the assembler, and it introduces three handy tools to make your life a little easier:
 1. **Conversion Table** </br>
@@ -895,7 +934,7 @@ This one's a bit behind-the-scenes: every change you make in the assembler is no
 If the program crashes unexpectedly, you won’t lose your work! </br>
 Simply click _Open File_ after restarting, select _log.txt_, and pick up right where you left off.
 
-## 3) Instruction Bonanza
+## Upgrade 3) Instruction Bonanza
 
 We’ve added six new instructions
 
@@ -915,8 +954,21 @@ We’ve added six new instructions
 > The previously named **`pause`** instruction has been renamed to **`stop`** to avoid confusion.
 > _All the sample programs here on GitHub and the various manuals online have already been updated._
 
-## 4) X Factor
-_coming soon_ - December 23 2024, already available for free on [Patreon](https://www.patreon.com/posts/patreon-timed-117010859)
+## Upgrade 4) X Factor
+We've expanded Flip01's capabilities by adding a module for multiplication and updating all the necessary logic structures accordingly.
+
+![mul](https://github.com/user-attachments/assets/b20f7099-e1ad-4a9f-8fb8-4722eefda3b6)
+
+To support this, we've introduced three new instructions specifically for handling multiplication operations:
+- **mul:** Multiplies the value in the specified general-purpose register with the indicated variable. The result is saved in the original register.
+- **mulR:** Multiplies the values in two general-purpose registers. The result is saved in the AX register.
+- **mul$:** Multiplies the value in the specified general-purpose register with the given constant. The result is saved in the original register.
+
+> [!NOTE]
+> All the details on how to use these new instructions can be found in the dedicated section of this manual.
+
+> [!IMPORTANT]
+> The flag bit previously named X, which was used solely to check the validity of shift operations, has now been repurposed to also ensure that multiplication results stay within the 8-bit limit.
 
 Do you like this stuff? </br>
 Support us with a [donation on PayPal](https://paypal.me/PescettiStudio?country.x=IT&locale.x=it_IT)! </br>
