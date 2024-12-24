@@ -913,14 +913,14 @@ Send us an email at _**pescettistudio@gmail.com**_ with **[bug]** at the beginni
 # Updates
 
 ## Upgrade 1) FliPGA01
-![Flipga01v2](https://github.com/user-attachments/assets/b26b4ea7-9e27-4e5a-aa8a-b5ccd1575914)
-The basic version of Flip01 now also has an FPGA implementation!   
+The basic version of Flip01 now also has an FPGA implementation! 
+![Flipga01v2](https://github.com/user-attachments/assets/b26b4ea7-9e27-4e5a-aa8a-b5ccd1575914)  
 The project, called FlipGA01, is of course free and open source.   
 You can find all the files here on [GitHub](https://github.com/pescetti-studio/FliPGA01), and there’s a detailed guide available on [Medium](https://medium.com/@crocilorenzo01/flipga01-a-simple-8-bit-cpu-on-a-fpga-db3e0fb82fe6).
 
 ## Upgrade 2) It’s Dangerous to Go Alone! Take This
+This one’s all about the assembler, and it introduces three handy tools to make your life a little easier.
 ![IDTGATT](https://github.com/user-attachments/assets/f199704e-40fe-4e39-a582-2b33414bb2bc)
-This one’s all about the assembler, and it introduces three handy tools to make your life a little easier:
 1. **Conversion Table**   
 Now you can quickly switch between binary, decimal, and hexadecimal values using a dedicated button.   
 The converter opens in a separate window, leaving the main assembler workspace untouched.
