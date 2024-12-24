@@ -2,36 +2,36 @@
 
 # Overview
 
-**Flip01**, short for _First Level Instructional Processor_, is a small **8-bit CPU** with a **16-bit address bus**. <br />
-This means it can handle data ranging from 0 to 2⁸–1 (255) and can store up to 2¹⁶ (65536 bit ~ 64 KB) different pieces of data. <br /> 
+**Flip01**, short for _First Level Instructional Processor_, is a small **8-bit CPU** with a **16-bit address bus**.  
+This means it can handle data ranging from 0 to 2⁸–1 (255) and can store up to 2¹⁶ (65536 bit ~ 64 KB) different pieces of data.  
 
-Data and addresses travel on two separate connection networks called the **data bus** and **address bus**, respectively. <br />
+Data and addresses travel on two separate connection networks called the **data bus** and **address bus**, respectively.  
 
 ![2](https://github.com/user-attachments/assets/67aaeb13-bdc0-4479-894d-588990f07793)
 > The schematic datapath of Flip01: it shows the connections between the components and the two buses (Data and Address).
 
-Flip01 is based on a **Harvard architecture**, meaning that data and instructions (the actions the processor must execute) are stored in two separate memories: **MEM1 for data** and **MEM2 for instructions**. <br />
-MEM1 is an 8-bit memory with a capacity of 64 KB, while MEM2 is a 9-bit memory with a capacity of 64 KB. <br /> <br />
+Flip01 is based on a **Harvard architecture**, meaning that data and instructions (the actions the processor must execute) are stored in two separate memories: **MEM1 for data** and **MEM2 for instructions**.  
+MEM1 is an 8-bit memory with a capacity of 64 KB, while MEM2 is a 9-bit memory with a capacity of 64 KB.  
 
 ![3](https://github.com/user-attachments/assets/ad15f7d3-d63a-4b4a-ba9b-cbd9139cb408)
 > Schematic representation of the features of MEM1 and MEM2 and their connections to the rest of the circuit.
 
-To move, temporarily store, and possibly modify these data, a component called register is used. <br />
+To move, temporarily store, and possibly modify these data, a component called register is used.  
 
 # REGISTERS
-In very simple terms, a register can be described as a standalone memory cell with **fast read and write capabilities**. <br />
-In Flip01, there are **10 main registers** (_+ 1: spoiler_), and their size and connection (data or address bus) are defined by their **specific function**. <br />
+In very simple terms, a register can be described as a standalone memory cell with **fast read and write capabilities**.  
+In Flip01, there are **10 main registers** (_+ 1: spoiler_), and their size and connection (data or address bus) are defined by their **specific function**.  
 
-- **AX:** This is the first of two **general-purpose registers**. <br />
-This means it has no specific function within the processor but is used to store data for calculations. <br />
-Since it only handles data, it is 8 bits in size and is connected solely to the **data bus**.
-- **BX:** The second and final **general-purpose register**, with the same properties as AX. <br />
-Like AX, it is 8 bits and connected only to the data bus. 
-- **STAUTSAX (SAX):** An 8-bit register designed to **save the contents of AX** when needed. <br />
-It can only communicate with AX, so it is not directly connected to either the data bus or the address bus. 
-- **STATUSBX (SBX):** A mirror register to STATUSAX. <br />
-It is also an 8-bit register but **saves the contents of BX** when required. <br />
-Like SAX, it is not connected directly to the data or address buses.
+- **AX:** This is the first of two **general-purpose registers**.  
+  This means it has no specific function within the processor but is used to store data for calculations.  
+  Since it only handles data, it is 8 bits in size and is connected solely to the **data bus**.
+- **BX:** The second and final **general-purpose register**, with the same properties as AX.
+  Like AX, it is 8 bits and connected only to the data bus. 
+- **STAUTSAX (SAX):** An 8-bit register designed to **save the contents of AX** when needed.
+  It can only communicate with AX, so it is not directly connected to either the data bus or the address bus. 
+- **STATUSBX (SBX):** A mirror register to STATUSAX.
+  It is also an 8-bit register but **saves the contents of BX** when required.
+  Like SAX, it is not connected directly to the data or address buses.
 - **DATA REGISTER (DR):** This register **communicates directly with the memory holding data** (MEM1). <br />
 Since it handles both data and addresses, it is a 16-bit register connected to **both the data and address buses**. <br />
 It uses converters to adapt the size before input and output:
