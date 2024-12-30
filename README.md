@@ -965,7 +965,7 @@ To support this, we've introduced three new instructions specifically for handli
 - **mul$:** Multiplies the value in the specified general-purpose register with the given constant. The result is saved in the original register.
 
 ## Upgrade 5) Glorious Evolution
-The three updates: "_It’s Dangerous to Go Alone! Take This_" "_Instruction Bonanza_" and "_X Factor_" are now available on Flip01's FPGA implementation: **FliPGA01**.
+The three updates: "_It’s Dangerous to Go Alone! Take This_", "_Instruction Bonanza_" and "_X Factor_" are now available on Flip01's FPGA implementation: **FliPGA01**.
 
 ![glorious evolution](https://github.com/user-attachments/assets/6c70be91-aeeb-42a0-9085-5b757b866a16)
 
