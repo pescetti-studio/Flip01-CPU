@@ -964,6 +964,13 @@ To support this, we've introduced three new instructions specifically for handli
 - **mulR:** Multiplies the values in two general-purpose registers. The result is saved in the AX register.
 - **mul$:** Multiplies the value in the specified general-purpose register with the given constant. The result is saved in the original register.
 
+## Upgrade 5) Glorious Evolution
+The three updates: "_It’s Dangerous to Go Alone! Take This_" "_Instruction Bonanza_" and "_X Factor_" are now available on Flip01's FPGA implementation: **FliPGA01**.
+
+![glorious evolution](https://github.com/user-attachments/assets/6c70be91-aeeb-42a0-9085-5b757b866a16)
+
+The entire project is free, open-source, and accessible through [this GitHub repository](https://github.com/pescetti-studio/FliPGA01).
+
 > [!NOTE]
 > All the details on how to use these new instructions can be found in the dedicated section of this manual.
 
